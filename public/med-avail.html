@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <script>
+         function loadFile(ref) {
+            var image = document.getElementById('prev');
+            image.src = URL.createObjectURL(ref.files[0]);
+        };
+      </script>
+    
+</head>
+<body>
+  <input type="hidden" name="rid">
+  
+    <div class="container">
+     
+     <div class="row bg-success">
+            <div class="col-md-12 text-white">
+                <center>
+                    <h2>Medicine Available</h2>
+                </center>
+            </div>
+        </div>
+<form  method="post" enctype="multipart/form-data">
+<div class="row mt-5 row justify-content-md-center">
+    <div class="col-md-5 ">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+       
+        <input type="email" class="form-control" id="txtemail"  name="txtemail">
+      
+        
+  
+  
+    </div>
+    <div class="col-md-3 ">
+      <label for="exampleFormControlInput1" class="form-label">Company</label>
+         
+          <input type="text" class="form-control" id="txtcity"  name="txtcom">
+          
+   
+      </div>
+      <div class="col-md-3 ">
+        <label for="exampleFormControlInput1" class="form-label">City</label>
+           
+            <input type="text" class="form-control"  name="txtcity">
+            
+     
+        </div>
+
+    </div>
+    <div class="row mt-5 row justify-content-md-center">
+        <div class="col-md-5 ">
+          <label for="exampleFormControlInput1" class="form-label">Med Name</label>
+             
+              <input type="text" class="form-control" id="txtadd"  name="txtmed">
+              
+         
+          </div>
+         
+          <div class="col-md-3 ">
+            
+            <label for="exampleFormControlInput1" class="form-label">quantity</label>
+              <input type="text" class="form-control" id="txtcity"  name="txtqty">
+              
+         
+          </div>
+          <div class="col-md-3 ">
+           
+            <label for="exampleFormControlInput1" class="form-label">status</label>
+              <input type="text" class="form-control" id="txtcity"  value="1" name="txtstatus">
+             
+         
+          </div>
+    
+         
+        
+    </div>
+    <div class="row mt-5 row justify-content-md-center">
+        <div class="col-md-3 ">
+           
+          <label for="exampleFormControlInput1" class="form-label">Exp. Date</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1"  name="txtexp">
+             
+         
+          </div>
+         
+          <div class="col-md-3">
+            <label for="exampleInputPassword1" class="form-label">Unit</label>
+             <select class="form-select" aria-label="Default select example" id="pref" name="txtunit">
+              <option value="none">none</option>
+             <option value="tablet">tablet</option>
+             <option value="bottle">bottle</option>
+             <option value="injection">injection</option>
+             <option value="stripes">stripes</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 ">
+            <label for="formFile" class="form-label">Pofile pic</label>
+            <input class="form-control" type="file" id="formFile" onchange="loadFile(this);" name="ppic1">
+           
+          </div>
+
+          <div class="col-md-1">
+            <img src="" width="200" height="200" id="prev">
+          </div>
+        
+    </div>
+    <div class="row mt-5 row justify-content-md-center">
+       
+        <input type="submit" class="btn btn-outline-success col-md-3"  formaction="/med-process"  value="Save">
+    
+          </div>
+        
+</form>
+
+
+    </div>
+
+</body>
+</html>

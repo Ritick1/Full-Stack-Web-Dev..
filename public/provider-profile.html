@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <script>
+         function loadFile(ref) {
+            var image = document.getElementById('prev');
+            image.src = URL.createObjectURL(ref.files[0]);
+        };
+      </script>
+       <script>
+        $(document).ready(function(){
+
+            $("#txtemail").blur(function(){
+                var email=$(this).val();
+                // alert(Uid);
+                var url="/ajax-check-email?kuchUid="+email;//url(query string)
+            $.get(url,function(responseKuch){  //call back function
+                    // alert(JSON.stringify(responseKuch));
+                    if(responseKuch.length==0)
+                        alert("Congrats, Available");
+                        else
+                        alert("It already Booked");
+            });
+        });
+
+        var mail = localStorage.getItem("kuchid")
+        alert(mail);
+        $("#txtemail").val(mail);
+        $("#btnSearch").click(function(){
+           
+            var email=$("#txtemail").val();
+           
+            var url="/ajax-check-email?kuchUid="+email;//url(query string)
+            $.get(url,function(respJSONAry){  //call back function
+                   
+                    if(respJSONAry.length==0)
+                        alert("Welcome New User...");
+                        else
+                        alert(JSON.stringify(respJSONAry));
+
+                        $("#txtname").val(respJSONAry[0].name);
+                        $("#txtadd").val(respJSONAry[0].address);
+                        $("#txtcity").val(respJSONAry[0].city);
+                        $("#txtcon").val(respJSONAry[0].contact);
+                        $("#txtacard").val(respJSONAry[0].acard);
+                        $("#prev").attr("src","uploads/"+respJSONAry[0].picname);
+                       
+                                   
+            });
+        });
+});
+</script>
+</head>
+<body>
+    <input type="hidden" id="savedPic" name="savedPic"> <!-- Its invisible textbox -->
+    <div class="container">
+     <div class="row bg-danger">
+            <div class="col-md-12 text-white">
+                <center>
+                    <h2>Provider Profile</h2>
+                </center>
+            </div>
+        </div>
+<form  method="post" enctype="multipart/form-data">
+<div class="row mt-5 ">
+   
+    <div class="col-md-4 ">
+     
+         <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="txtemail"  name="txtemail" readonly>
+       
+    </div>
+   
+       <div class="row mt-4 col-md-3">
+        
+        <button type="button" class=" btn btn-outline-primary " id="btnSearch">Search</button>
+    </div>
+
+
+    <div class="col-md-4">
+       
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="txtname" name="txtname">
+         
+      </div>
+     </div>
+   
+    <div class="row mt-5 ">
+        <div class="col-md-7">
+            
+            <label for="exampleFormControlInput1" class="form-label">Address 1</label>
+              <input type="text" class="form-control" id="txtadd"  name="txtadd">
+             
+          
+         </div>
+          <div class="col-md-4 ">
+           
+            <label for="exampleFormControlInput1" class="form-label">City</label>
+              <input type="text" class="form-control" id="txtcity"  name="txtcity">
+            
+         
+          </div>
+        
+    </div>
+    <div class="row mt-5 ">
+        <div class="col-md-7 ">
+            
+            <label for="exampleFormControlInput1" class="form-label">Address 2</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" >
+             
+          </div>
+         
+         
+          <div class="col-md-4 ">
+         
+            <label for="exampleFormControlInput1" class="form-label">Contact No</label>
+              <input type="text" class="form-control" id="txtcon"  name="txtcon">
+              
+        
+          </div>
+        
+    </div>
+    <div class="row mt-5 row justify-content-md-center">
+        <div class="col-md-5  ">
+           
+            <label for="exampleFormControlInput1" class="form-label">Adhaar Card No.</label>
+                <input type="text" class="form-control" id="txtacard" name="txtacard">
+              
+          </div>
+         
+         
+          
+         <div class="col-md-4 offset-1">
+                <label for="formFile" class="form-label">Pofile pic</label>
+                <input class="form-control" type="file" id="formFile" onchange="loadFile(this);" name="ppic">
+               
+              </div>
+
+              <div class="col-md-1">
+                <img src="" width="200" height="200" id="prev">
+              </div>
+            
+       
+          </div>
+        
+ 
+
+    <div class="row mt-5 row justify-content-md-center">
+    <input type="submit" class="btn btn-outline-danger col-md-3" data-bs-toggle="modal" data-bs-target="#modalSignup" formaction="/profile-process"  style="margin-right: 10px;" value="Save">
+    <input type="submit" class="btn btn-outline-danger col-md-3" data-bs-toggle="modal" data-bs-target="#modalSignin"  formaction="/doUpdate" style="margin-right: 10px;" value="Update">
+     </div>
+
+
+</form>
+
+
+    </div>
+
+</body>
+</html>

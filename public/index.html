@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/index.css">
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="js/jquery-1.8.2.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+    <title>Document</title>
+
+<style>
+  span{
+  
+    position: absolute;
+    right: 20px;
+    transform: translate(0,-50);
+    top:50%;
+  cursor:pointer;
+    }
+   .fa{
+      font-size:20px;
+      color: #7a797e;
+    }
+   
+</style>
+    <script>
+      $(document).ready(function(){
+        $("#show1").hide();
+
+        var res=false;
+        var res1=false;
+        var res2 = false;
+
+        var resp = false;
+        var resp1 = false;
+
+        $("#icon").mousedown(function(){
+                    $("#txtpwd").prop("type","text");
+                    
+                    $(this).addClass("fa-eye-slash").removeClass("fa-eye ey");
+              });
+              $("#icon").mouseup(function(){
+                    $("#txtpwd").attr("type","password"); //fa fa-eye ey
+                    $(this).removeClass("fa-eye-slash").addClass("fa-eye ey");
+              });
+               
+              // $("#btnCli").click(function(){
+              //      var i= $("#txtemail").val();
+              //      var j= $("#txtpwd").val();
+              //      var k= $("#txtmob").val();
+                  
+              //     if(i,j,k==""){
+              //       //  alert("fill values");
+              //            $("#HOR1,#HOR2,#HOR3").html("**Fill all values");
+              //              $("#HOR1,#HOR2,#HOR3").css({'color':'red'});
+                         
+              //     }
+              //  });
+               $("#icon1").mousedown(function(){
+                    $("#txtpwd1").prop("type","text");
+                    
+                    $(this).addClass("fa-eye-slash").removeClass("fa-eye ey");
+              });
+              $("#icon1").mouseup(function(){
+                    $("#txtpwd1").attr("type","password"); //fa fa-eye ey
+                    $(this).removeClass("fa-eye-slash").addClass("fa-eye ey");
+              });
+               
+              // $("#btnCli1").click(function(){
+              //      var i= $("#txtemail1").val();
+              //      var j= $("#txtpwd1").val();
+                  
+                  
+              //     if(i,j==""){
+              //       //  alert("fill values");
+              //            $("#POR1,#POR2").html("**Fill all values");
+              //              $("#POR1,#POR2").css({'color':'red'});
+              //     }
+              //  });
+        
+        
+              
+
+        $("#txtemail").blur(function()
+              {
+               
+              
+                var r=/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                var email=$(this).val();
+                var rog = res = r.test(email);
+                if(rog==true){
+                            $('#HOR1').show();
+                           $("#HOR1").html("**Valid");
+                           $("#HOR1").css({'color':'green'});
+                         
+                }
+                    else {
+                   $("#HOR1").html("**Invalid");
+                    $("#HOR1").css({'color':'red'});
+                    }
+                });
+              // ===================================
+               $("#txtpwd").blur(function()
+              {
+                var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                var pwd=$(this).val();
+                var rog1 = res1= r.test(pwd);
+                if(rog1==true){
+                       
+                        $('#HOR2').show();
+                           $("#HOR2").html("**Valid");
+                           $("#HOR2").css({'color':'green'});
+                }
+                    else{
+                   $('#HOR2').show();
+                           $("#HOR2").html("**Invalid");
+                           $("#HOR2").css({'color':'red'});
+                    }
+                   });
+
+                  //  ==========================================
+                   $("#txtmob").blur(function()
+              {
+                var r=/^[7-9]{1}[0-9]{9}$/;
+                var mob=$(this).val();
+                var rog2 = res2 = r.test(mob);
+                if(rog2==true){
+                    $('#HOR3').show();
+                           $("#HOR3").html("**Valid");
+                           $("#HOR3").css({'color':'green'});
+                }
+                    else{
+                    $('#HOR3').show();
+                           $("#HOR3").html("**Invalid");
+                           $("#HOR3").css({'color':'red'});
+                    }
+              });
+              $("#txtemail1").blur(function()
+              {
+               
+              
+                var r=/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                var email=$(this).val();
+                var reg=resp=r.test(email);
+                if(reg==true){
+                            $('#POR1').show();
+                           $("#POR1").html("**Valid");
+                           $("#POR1").css({'color':'green'});
+                         
+                }
+                    else {
+                   $("#POR1").html("**Invalid");
+                    $("#POR1").css({'color':'red'});
+                    }
+                });
+              // ===================================
+               $("#txtpwd1").blur(function()
+              {
+                var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                var pwd=$(this).val();
+                var reg1 = resp1 = r.test(pwd);
+                if(reg1==true){
+                       
+                        $('#POR2').show();
+                           $("#POR2").html("**Valid");
+                           $("#POR2").css({'color':'green'});
+                }
+                    else{
+                   $('#POR2').show();
+                           $("#POR2").html("**Invalid");
+                           $("#POR2").css({'color':'red'});
+                    }
+                   });
+                   
+
+                 $("#btnCli").click(function(){
+                   if(res==false||res1==false||res2==false){
+                        $("#show").html("**Fill all detail");
+                           $("#show").css({'color':'red'});
+                     return;
+                     
+                   }
+                var email=$("#txtemail").val();
+                var password=$("#txtpwd").val();
+                var mobile=$("#txtmob").val();
+                var pref = $("#pref").val();
+               
+
+                // alert(email);
+                // alert(password);
+                // alert(mobile);
+                // alert(pref);
+                 data = "email=" + email+"&password="+password+"&mobile="+mobile+"&Pref="+pref;
+                var url="/ajax-form?"+ data;
+                 $.get(url,function(responseKuch){  //call back function
+                    alert(JSON.stringify(responseKuch));
+                   
+            });
+        });
+      // ===================================================================================
+
+      $("#login").click(function(){
+                   if(resp==false||resp1==false){
+                    $("#show1").show();
+                    $("#show1").html("**Fill all detail");
+                           $("#show1").css({'color':'red'});
+                     return;
+                     
+                   }else
+                   $("#show1").hide();
+
+                var email=$("#txtemail1").val();
+                var password=$("#txtpwd1").val();
+              
+               
+                
+             
+                 data = "email=" + email+"&password="+password+"&Pref="+pref;
+                
+                var url1="/ajax-form-login?"+ data;
+
+               
+                 $.get(url1,function(responseKuch1){  //call back function
+                    if(responseKuch1==0){
+                      alert("Invalid email and password");
+                    }else{
+                    alert("you are authorized user");
+                    localStorage.setItem("kuchid",email);
+                    var mail = localStorage.getItem("kuchid")
+                    alert(mail);
+                  }
+                   
+                
+                  var pref=responseKuch1[0].Pref;
+                  if(pref=="Med Provider"){
+                  window.location.href="med-provider-dash.html";
+                 }else if(pref=="Needy" )
+                             window.location.href="needy-dash.html";
+
+                   
+            });
+        });
+       
+
+
+
+
+
+
+
+});
+             
+
+       
+
+    </script>
+    
+    
+    
+ 
+ 
+ 
+</head>
+<body>
+  
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
+    <div class="container-fluid ">
+      <div id="logo"></div>
+      <div id="name">Mediassist.com</div>
+     
+        
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalSignup" style="margin-right: 10px; margin-left: 50px;">Sign up</div>
+                <div class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalSignin"  style="margin-right: 10px; ">Login</div>
+                <form class="d-flex ">
+           
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">About us</a>
+                    </li>
+                  
+                  </ul>
+                  <!-- <div id="insta" class="fake"></div> -->
+                  <img src="pics/Glossy-Instagram-logo-PNG.png" alt="" class="fake" id="insta">
+                  <!-- <div id="youtube" class="fake"></div> -->
+                  <img src="pics/youtube.jpg" alt="" class="fake" id="youtube">
+
+        </div>
+    </div>
+  </nav>
+
+   <!-- =========================== CaroUseL ==================================== -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="pics/1 carsouel.jpeg" class="d-block w-100" alt="" height="500px">
+      </div>
+      <div class="carousel-item">
+        <img src="pics/2 carsouel.jpg" class="d-block w-100" alt="..." height="500px">
+      </div>
+      <div class="carousel-item">
+        <img src="pics/3 carsol.jpg" class="d-block w-100" alt="..." height="500px">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <nav class="navbar navbar-dark bg-success">
+    
+   <b style="color: white; margin-left: 700px; font-size:20px;">Our Services</b>
+   
+  </nav>
+   <!-- ==============================cards================================= -->
+  <div class="container">
+  <div class="row mt-5 " style="margin-left:80px;">
+    <div class="col-md-4 ">
+  <div class="card" style="width: 18rem;">
+    <img src="pics/local med.jpeg" class="card-img-top" alt="..." height="172px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 ">
+  <div class="card " style="width: 18rem;">
+    <img src="pics/get med3.png" class="card-img-top" alt="..." height="172px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+<div class="col-md-4" >
+  <div class="card" style="width: 18rem;">
+    <img src="pics/target.png" class="card-img-top" alt="..." height="172px">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+ <table class="table table-bordered border- mt-5"  >
+   <tr>
+  <th class="table-success" style="font-size:20px; text-align: center; color: white; background-color: #EF7D2F">
+    Meet The Developer
+  </th>
+  <th class="table-success" style="font-size:20px; text-align: center; color: white; background-color: #EF7D2F">
+    Under The Guidance
+  </th>
+</tr>
+<tr>
+
+  <td>
+    <img src="pics/Glossy-Instagram-logo-PNG.png" width="100" height="100" alt="" class="fake" >  
+    Ritick Saini
+  </td>
+  <td>
+    <img src="pics/ra.jpg" width="100" height="100" alt="" class="fake" >  
+    rajesh sir
+  </td>
+</tr>
+</table>
+
+  <!-- =============================================================== -->
+   
+    <div class="modal fade " tabindex="-1" id="modalSignup">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-success" >
+              <h5 class="modal-title">Signup Here</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label" >Email address</label>
+                      <input type="email" class="form-control " id="txtemail" aria-describedby="emailHelp" >
+                      <H5 id="HOR1" class="form-text por"></H5>
+                      
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label" >Password</label>
+                      <input type="password" class="form-control " id="txtpwd" > <i class="fa fa-eye ey" id="icon" aria-hidden="true"  ></i>
+                    
+                      <H5 id="HOR2" class="form-text por" style="position:relative; bottom: 22px;"></H5>
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label" style="position:relative; bottom: 22px;">Mobile</label>
+                      <input type="text" class="form-control " id="txtmob" style="position:relative; bottom: 22px;">
+                      <h5 id="HOR3" class="form-text por" style="position:relative; bottom: 22px;"></h5>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label" style="position:relative; bottom: 22px;">select your preference</label>
+                       <select class="form-select" aria-label="Default select example" id="pref" name="combo" style="position:relative; bottom: 22px;">
+                        <option value="none">select</option>
+                       <option value="Med Provider">Med Provider</option>
+                       <option value="Needy">Needy</option>
+                      </select>
+                  </div>
+                 
+                    
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <h5 id="show" class="form-text por"></h5>
+              <button type="button" class="btn btn-primary" id="btnCli">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================================================================== -->
+
+      <div class="modal fade" tabindex="-1" id="modalSignin">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-success" >
+              <h5 class="modal-title">Login Here</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="txtemail1" describedby="emailHelp">
+                      <h5 id="POR1" class="form-text"></h5>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="txtpwd1">  <i class="fa fa-eye ey" id="icon1" aria-hidden="true" ></i> 
+                      <h5 id="POR2" class="form-text" style="position:relative; bottom: 22px;"></h5>
+                    </div>
+                    
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <h5 id="show1" class="form-text por"></h5>
+              <button type="button" class="btn btn-primary" id="login">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
