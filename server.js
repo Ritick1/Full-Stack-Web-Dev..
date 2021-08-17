@@ -2,9 +2,10 @@ var express = require("express");
 var mysql = require("mysql");
 var app = express();
 var session = require("express-session");
+var port = process.env.PORT || 3000;
 
-app.listen(3000,function(){
-    console.log("server started")
+app.listen(port,function(){
+    console.log(`listening to the port no at ${port}`)
 })
 
 var dbConfigObj = {
