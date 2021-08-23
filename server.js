@@ -9,10 +9,15 @@ app.listen(port,function(){
 })
 
 var dbConfigObj = {
-  host : "localhost",
-  user : "root",
-  password:"",
-  database:"store"
+//   host : "localhost",
+//   user : "root",
+//   password:"",
+//   database:"store"
+
+  host : "lsql6.freemysqlhosting.net",
+  user : "sql6432418",
+  password:"V69i5sZR3z",
+  database:"sql6432418"
 }
 var dbcon = mysql.createConnection(dbConfigObj);
 
