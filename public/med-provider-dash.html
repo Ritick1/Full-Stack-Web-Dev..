@@ -10,92 +10,29 @@
     <script src="js/bootstrap.min.js"></script>
     <title>Document</title>
 
-    <style>
-         
+    <script>
+      function doCall(){
+        localStorage.removeItem("kuchid");
+        location.href="index.html";
+      }
+    </script>
 
-#logo{
-    background-image: url(../pics/medlogo.png);
- width: 50px;
-    height: 40px;
-    background-size:contain;
-   float: left;
-    cursor: pointer;
-    border-radius: 50%;
-    margin-left: 180px;
-    margin-right: 20px ;
-}
-#name{
-    font-size: 25px; 
-    font-style: italic; 
-    float:left;
-
-    margin-right: 20px;
-   cursor: pointer;
-    color:white;
-    
-
-}
-
-ul{
-    margin-left: 500px;
-    
- 
-}
-#insta{
-    width: 50px;
-    height: 40px;
-    float: right;
-    background-size: contain;
-    border-radius: 100%;
-    background-repeat: no-repeat;
-    margin-left: 60px;
-    cursor: pointer;
-  
-}
-#youtube{
-   width: 50px;
-    height: 40px;
-    float: right;
-    background-size: contain;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    float: right;
-    margin-left: 20px;
-    cursor: pointer;
-    
-}
-.fake:hover{
-   transform: scale(1.2);
-}
     </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
-    <div class="container-fluid ">
-      <div id="logo"></div>
-      <div id="name">Mediassist.com</div>
-     
-        
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
-                <form class="d-flex ">
-                  <h5>med-provider</h5>
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">About us</a>
-                    </li>
-                  
-                  </ul>
-                  <!-- <div id="insta" class="fake"></div> -->
-                  <img src="pics/Glossy-Instagram-logo-PNG.png" alt="" class="fake" id="insta">
-                  <!-- <div id="youtube" class="fake"></div> -->
-                  <img src="pics/youtube.jpg" alt="" class="fake" id="youtube">
+  <nav class="navbar navbar-expand-lg navbar-dark" style=" text-align: center; background-color:#008080; ">
 
-        </div>
+    <div class="container-fluid">
+
+      
+      <a class="navbar-brand" href="#" style="margin-left:10px;">MED-PROVIDER-DASHBOARD</a>
+
+
+
+
+
+
+    
     </div>
   </nav>
   
@@ -122,12 +59,20 @@ ul{
                        </div>
                        <div class="col-md-3 ">
                         <div class="card" style="width: 18rem;">
-                           <img src="pics/manager.jpg" class="card-img-top" alt="..." style="border-radius: 50%;">
+                           <img src="pics/mm.jpg" class="card-img-top" alt="..." style="border-radius: 50%;">
                            <div class="card-body  row justify-content-md-center">
                             <a href="med-manager.html" class="btn btn-primary">Medecines Manager</a>
                            </div>
                          </div>
                                </div>
+                               <div class="col-md-3 ">
+                                <div class="card" style="width: 18rem;">
+                                   <img src="pics/manager.jpg" class="card-img-top" alt="..." style="border-radius: 50%;">
+                                   <div class="card-body  row justify-content-md-center">
+                                    <input type="button" value="logout" onclick="doCall();" class="btn btn-primary">
+                                   </div>
+                                 </div>
+                                       </div>
     </div>
     </div>
 </body>
