@@ -13,10 +13,14 @@ var dbConfigObj = {
 //   user : "root",
 //   password:"",
 //   database:"store"
+// host : "sql6.freemysqlhosting.net",
+// user : "sql6432418",
+// password:"V69i5sZR3z",
+// database:"sql6432418"
 host : "sql6.freemysqlhosting.net",
-user : "sql6432418",
-password:"V69i5sZR3z",
-database:"sql6432418"
+user : "sql6458051",
+password:"NCCdHe2FUA",
+database:"sql6458051"
  
 }
 var dbcon = mysql.createConnection(dbConfigObj);
